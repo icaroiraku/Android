@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroud="@android:color/darker_gray">
+
+
+    <ImageView
+        android:id="@+id/img_oceano"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="-4dp"
+        android:layout_weight="08"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ocean" />
+
+    <TextView
+        android:id="@+id/tom_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_below="@id/img_oceano"
+        android:layout_alingParentLeft="true"
+        android:background="#483D8B"
+        android:text="Tom"
+        android:textSize="24sp" />
+
+    <TextView
+        android:text="Tim"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:textSize="24sp"
+        android:background="#6495ED"
+        android:id="@+id/tim_text_view"
+        android:layout_below="@id/tom_text_view"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"/>
+
+        <TextView
+            android:text="Todd"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:textSize="24sp"
+            android:background="#FF00FF"
+            android:id="@+id/todd_text_view"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"/>
+
+</RelativeLayout>
