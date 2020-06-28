@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/turque"
+    tools:context=".activity_product_items_layout">
+
+
+    <ImageView
+        android:id="@+id/login_applogo"
+        android:layout_width="422dp"
+        android:layout_height="123dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="60dp"
+        android:src="@drawable/applogo" />
+
+
+    <Button
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="sair"
+        android:id="@+id/botao_sair"
+        android:layout_alignParentTop="@+id/login_applogo"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:onClick="activity_main"
+        />
+    <TextView
+        android:id="@+id/descricao_produto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/login_applogo"
+        android:text="Descrição Produtos"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimaryDark"/>
+
+    <ImageView
+        android:id="@+id/camisas"
+        android:layout_width="111dp"
+        android:layout_height="211dp"
+        android:layout_below="@id/login_applogo"
+        app:srcCompat="@drawable/camisa" />
+
+    <Button
+        android:id="@+id/buttao_camisa"
+        android:layout_width="107dp"
+        android:layout_height="35dp"
+        android:layout_below="@+id/camisas"
+        android:layout_marginTop="2dp"
+        android:text="20$" />
+
+    <ImageView
+        android:id="@+id/pc"
+        android:layout_width="wrap_content"
+        android:layout_height="140dp"
+        android:layout_below="@id/login_applogo"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="center"
+        android:layout_margin="20dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginRight="100dp"
+        android:layout_marginBottom="100dp"
+        app:srcCompat="@drawable/pc" />
+
+    <Button
+        android:id="@+id/buttao_pc"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/pc"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="center"
+        android:layout_margin="110dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="100dp"
+        android:text="200$" />
+
+
+</RelativeLayout>
+
+
+
