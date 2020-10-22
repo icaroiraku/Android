@@ -8,10 +8,10 @@ class SavedTab extends StatelessWidget {
       child: Stack(
         children: [
           Center(
-            child: Text("Saved Tab"),
+            child: Text("Guia salva"),
           ),
           CustomActionBar(
-            title: "Saved",
+            title: "Salvou",
             hasBackArrrow: false,
           ),
         ],

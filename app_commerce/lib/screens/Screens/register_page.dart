@@ -11,7 +11,7 @@ class RegisterPage extends StatefulWidget {
 
 class _RegisterPageState extends State<RegisterPage> {
 
-  // Build an alert dialog to display some errors.
+  // Crie uma caixa de diálogo de alerta para exibir alguns erros.
   Future<void> _alertDialogBuilder(String error) async {
     return showDialog(
         context: context,
@@ -35,17 +35,17 @@ class _RegisterPageState extends State<RegisterPage> {
     );
   }
 
-  // Create a new user account
+  // Crie uma nova conta de usuário
   Future<String> _createAccount() async {
     try {
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
           email: _registerEmail, password: _registerPassword);
       return null;
     } on FirebaseAuthException catch(e) {
-      if (e.code == 'weak-password') {
-        return 'The password provided is too weak.';
-      } else if (e.code == 'email-already-in-use') {
-        return 'The account already exists for that email.';
+      if (e.code == 'Senha Fraca') {
+        return 'A senha fornecida é muito fraca.';
+      } else if (e.code == 'email já em uso.') {
+        return 'A conta já existe para esse e-mail.';
       }
       return e.message;
     } catch (e) {
@@ -54,7 +54,7 @@ class _RegisterPageState extends State<RegisterPage> {
   }
 
   void _submitForm() async {
-    // Set the form to loading state
+    // Defina o formulário para o estado de carregamento
     setState(() {
       _registerFormLoading = true;
     });
@@ -112,7 +112,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   top: 24.0,
                 ),
                 child: Text(
-                  "Create A New Account",
+                  "Criar uma nova conta",
                   textAlign: TextAlign.center,
                   style: Constants.boldHeading,
                 ),
@@ -130,7 +130,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     textInputAction: TextInputAction.next,
                   ),
                   CustomInput(
-                    hintText: "Password...",
+                    hintText: "Senha...",
                     onChanged: (value) {
                       _registerPassword = value;
                     },
@@ -141,7 +141,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     },
                   ),
                   CustomBtn(
-                    text: "Create New Account",
+                    text: "Criar nova Conta",
                     onPressed: () {
                       _submitForm();
                     },
@@ -154,7 +154,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   bottom: 16.0,
                 ),
                 child: CustomBtn(
-                  text: "Back To Login",
+                  text: "Volte ao login",
                   onPressed: () {
                     Navigator.pop(context);
                   },

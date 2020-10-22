@@ -25,7 +25,8 @@ class _ProductPageState extends State<ProductPage> {
         .set({"size": _selectedProductSize});
   }
 
-  final SnackBar _snackBar = SnackBar(content: Text("Product added to the cart"),);
+  final SnackBar _snackBar = SnackBar(content:
+  Text("Produto adicionado ao carrinho"),);
 
   @override
   Widget build(BuildContext context) {
@@ -104,7 +105,7 @@ class _ProductPageState extends State<ProductPage> {
                         horizontal: 24.0,
                       ),
                       child: Text(
-                        "Select Size",
+                        "Selecione o tamanho",
                         style: Constants.regularDarkText,
                       ),
                     ),
@@ -151,7 +152,7 @@ class _ProductPageState extends State<ProductPage> {
                                 ),
                                 alignment: Alignment.center,
                                 child: Text(
-                                  "Add To Cart",
+                                  "Adicionar ao carrinho",
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 16.0,

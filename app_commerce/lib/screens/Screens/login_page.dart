@@ -43,10 +43,10 @@ class _LoginPageState extends State<LoginPage> {
           email: _loginEmail, password: _loginPassword);
       return null;
     } on FirebaseAuthException catch(e) {
-      if (e.code == 'weak-password') {
-        return 'The password provided is too weak.';
-      } else if (e.code == 'email-already-in-use') {
-        return 'The account already exists for that email.';
+      if (e.code == 'Senha Fraca') {
+        return 'A senha fornecida é muito fraca.';
+      } else if (e.code == 'email já em uso') {
+        return 'A conta já existe para esse e-mail.';
       }
       return e.message;
     } catch (e) {
@@ -110,7 +110,7 @@ class _LoginPageState extends State<LoginPage> {
                   top: 24.0,
                 ),
                 child: Text(
-                  "Welcome User,\nLogin to your account",
+                  "Bem -Vindo a BuyMore ,\nFaça login na sua conta",
                   textAlign: TextAlign.center,
                   style: Constants.boldHeading,
                 ),
@@ -128,7 +128,7 @@ class _LoginPageState extends State<LoginPage> {
                     textInputAction: TextInputAction.next,
                   ),
                   CustomInput(
-                    hintText: "Password...",
+                    hintText: "Senha...",
                     onChanged: (value) {
                       _loginPassword = value;
                     },
@@ -152,7 +152,7 @@ class _LoginPageState extends State<LoginPage> {
                   bottom: 16.0,
                 ),
                 child: CustomBtn(
-                  text: "Create New Account",
+                  text: "Crie uma Conta",
                   onPressed: () {
                     Navigator.push(
                       context,
