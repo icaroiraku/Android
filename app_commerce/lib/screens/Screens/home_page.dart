@@ -4,14 +4,17 @@ import 'package:app_commerce/tabs/home_tab.dart';
 import 'package:app_commerce/tabs/saved_tab.dart';
 import 'package:app_commerce/tabs/search_tab.dart';
 import 'package:app_commerce/widgets/bottom_tabs.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'package:flutter/material.dart';
+
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
+ final CollectionReference _productsRef = FirebaseFirestore.instance.collection("Products");
   FirebaseServices _firebaseServices = FirebaseServices();
 
   PageController _tabsPageController;

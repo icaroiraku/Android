@@ -10,8 +10,11 @@ class CartPage extends StatefulWidget {
   _CartPageState createState() => _CartPageState();
 }
 
+
 class _CartPageState extends State<CartPage> {
 
+  final CollectionReference _productsRef =
+  FirebaseFirestore.instance.collection("Users");
   FirebaseServices _firebaseServices = FirebaseServices();
 
   @override
@@ -20,7 +23,8 @@ class _CartPageState extends State<CartPage> {
       body: Stack(
         children: [
           FutureBuilder<QuerySnapshot>(
-            future: _firebaseServices.usersRef.doc(_firebaseServices.getUserId())
+            future: _firebaseServices.usersRef
+                .doc(_firebaseServices.getUserId())
                 .collection("Cart").get(),
             builder: (context, snapshot) {
               if (snapshot.hasError) {
@@ -47,7 +51,8 @@ class _CartPageState extends State<CartPage> {
                         ));
                       },
                       child: FutureBuilder(
-                        future: _firebaseServices.productsRef.doc(document.id).get(),
+                        future: _firebaseServices.productsRef
+                            .doc(document.id).get(),
                         builder: (context, productSnap) {
                           if(productSnap.hasError) {
                             return Container(
@@ -58,6 +63,8 @@ class _CartPageState extends State<CartPage> {
                           }
 
                           if(productSnap.connectionState == ConnectionState.done) {
+
+
                             Map _productMap = productSnap.data.data();
 
                             return Padding(

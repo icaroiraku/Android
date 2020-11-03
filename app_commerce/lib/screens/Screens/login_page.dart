@@ -110,7 +110,7 @@ class _LoginPageState extends State<LoginPage> {
                   top: 24.0,
                 ),
                 child: Text(
-                  "Bem -Vindo a BuyMore ,\nFaça login na sua conta",
+                  "Bem -Vindo a BuyMore ,\n Faça login na sua conta",
                   textAlign: TextAlign.center,
                   style: Constants.boldHeading,
                 ),

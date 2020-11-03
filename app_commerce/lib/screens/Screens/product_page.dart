@@ -3,19 +3,33 @@ import 'package:app_commerce/services/firebase_services.dart';
 import 'package:app_commerce/widgets/custom_action_bar.dart';
 import 'package:app_commerce/widgets/image_swipe.dart';
 import 'package:app_commerce/widgets/product_size.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class ProductPage extends StatefulWidget {
   final String productId;
+
   ProductPage({this.productId});
 
   @override
   _ProductPageState createState() => _ProductPageState();
 }
-
+//
 class _ProductPageState extends State<ProductPage> {
+  final CollectionReference _productsRef =
+    FirebaseFirestore.instance.collection("Products");
+
+  final CollectionReference _usersRef =
+  FirebaseFirestore.instance.collection("Users");
+
+  User _user = FirebaseAuth.instance.currentUser;
+
+
+
+
   FirebaseServices _firebaseServices = FirebaseServices();
-  String _selectedProductSize = "0";
+  String _selectedProductSize = "0";//
 
   Future _addToCart() {
     return _firebaseServices.usersRef
@@ -25,8 +39,16 @@ class _ProductPageState extends State<ProductPage> {
         .set({"size": _selectedProductSize});
   }
 
-  final SnackBar _snackBar = SnackBar(content:
-  Text("Produto adicionado ao carrinho"),);
+  Future _addToSaved() {
+    return _firebaseServices.usersRef
+        .doc(_firebaseServices.getUserId())
+        .collection("Saved")
+        .doc(widget.productId)
+        .set({"size": _selectedProductSize});
+  }
+  final SnackBar _snackBar = SnackBar
+    (content: Text("Produto adicionado ao carrinho"),
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +56,9 @@ class _ProductPageState extends State<ProductPage> {
       body: Stack(
         children: [
           FutureBuilder(
-            future: _firebaseServices.productsRef.doc(widget.productId).get(),
+            future: _firebaseServices.productsRef
+                .doc(widget.productId)
+                .get(),
             builder: (context, snapshot) {
               if (snapshot.hasError) {
                 return Scaffold(
@@ -46,7 +70,7 @@ class _ProductPageState extends State<ProductPage> {
 
               if (snapshot.connectionState == ConnectionState.done) {
                 // Firebase Document Data Map
-                Map<String, dynamic> documentData = snapshot.data.data();
+                Map<String, dynamic > documentData = snapshot.data.data();
 
                 // List of images
                 List imageList = documentData['images'];
@@ -105,7 +129,7 @@ class _ProductPageState extends State<ProductPage> {
                         horizontal: 24.0,
                       ),
                       child: Text(
-                        "Selecione o tamanho",
+                        "Selecione a cor",
                         style: Constants.regularDarkText,
                       ),
                     ),
@@ -120,19 +144,25 @@ class _ProductPageState extends State<ProductPage> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Container(
-                            width: 65.0,
-                            height: 65.0,
-                            decoration: BoxDecoration(
-                              color: Color(0xFFDCDCDC),
-                              borderRadius: BorderRadius.circular(12.0),
-                            ),
-                            alignment: Alignment.center,
-                            child: Image(
-                              image: AssetImage(
-                                "assets/images/tab_saved.png",
+                          GestureDetector(
+                            onTap: () async {
+                              await _addToSaved();
+                              Scaffold.of(context).showSnackBar(_snackBar);
+                            },
+                            child: Container(
+                              width: 65.0,
+                              height: 65.0,
+                              decoration: BoxDecoration(
+                                color: Color(0xFFDCDCDC),
+                                borderRadius: BorderRadius.circular(12.0),
                               ),
-                              height: 22.0,
+                              alignment: Alignment.center,
+                              child: Image(
+                                image: AssetImage(
+                                  "assets/images/tab_saved.png",
+                                ),
+                                height: 22.0,
+                              ),
                             ),
                           ),
                           Expanded(

@@ -16,7 +16,7 @@ class CustomActionBar extends StatelessWidget {
 
   final CollectionReference _usersRef = FirebaseFirestore
       .instance
-      .collection("Usuario");
+      .collection("Users");
 
   @override
   Widget build(BuildContext context) {

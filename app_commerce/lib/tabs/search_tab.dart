@@ -30,10 +30,10 @@ class _SearchTabState extends State<SearchTab> {
             )
           else
             FutureBuilder<QuerySnapshot>(
-              future: _firebaseServices.productsRef
-                  .orderBy("search_string")
-                  .startAt([_searchString]).endAt(
-                  ["$_searchString\uf8ff"]).get(),
+              future: _firebaseServices.productsRef.orderBy("search_string")
+                  .startAt([_searchString])
+                  .endAt(["$_searchString\uf8ff"])
+                  .get(),
               builder: (context, snapshot) {
                 if (snapshot.hasError) {
                   return Scaffold(
@@ -75,7 +75,7 @@ class _SearchTabState extends State<SearchTab> {
               top: 45.0,
             ),
             child: CustomInput(
-              hintText: "Search here...",
+              hintText: "Pesquise Aqui...",
               onSubmitted: (value) {
                 setState(() {
                   _searchString = value.toLowerCase();
