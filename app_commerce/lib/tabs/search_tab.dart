@@ -23,7 +23,7 @@ class _SearchTabState extends State<SearchTab> {
             Center(
               child: Container(
                 child: Text(
-                  "Search Results",
+                  "Resultados",
                   style: Constants.regularDarkText,
                 ),
               ),
@@ -55,7 +55,7 @@ class _SearchTabState extends State<SearchTab> {
                       return ProductCard(
                         title: document.data()['name'],
                         imageUrl: document.data()['images'][0],
-                        price: "\$${document.data()['price']}",
+                        price: "R\$${document.data()['price']}",
                         productId: document.id,
                       );
                     }).toList(),

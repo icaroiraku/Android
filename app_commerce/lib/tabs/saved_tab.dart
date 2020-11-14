@@ -104,7 +104,7 @@ class SavedTab extends StatelessWidget {
                                             vertical: 4.0,
                                           ),
                                           child: Text(
-                                            "\$${_productMap['price']}",
+                                            "R\$${_productMap['price']}",
                                             style: TextStyle(
                                                 fontSize: 16.0,
                                                 color: Theme.of(context)
@@ -113,7 +113,7 @@ class SavedTab extends StatelessWidget {
                                           ),
                                         ),
                                         Text(
-                                          "Size - ${document.data()['size']}",
+                                          "Cor - ${document.data()['size']}",
                                           style: TextStyle(
                                               fontSize: 16.0,
                                               color: Colors.black,
@@ -148,7 +148,7 @@ class SavedTab extends StatelessWidget {
             },
           ),
           CustomActionBar(
-            title: "Saved",
+            title: "Salvo",
             hasBackArrrow: false,
           ),
         ],

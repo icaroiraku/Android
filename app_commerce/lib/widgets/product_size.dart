@@ -44,7 +44,7 @@ class _ProductSizeState extends State<ProductSize> {
                   "${widget.productSizes[i]}",
                   style: TextStyle(
                     fontWeight: FontWeight.w600,
-                    color: _selected == i ? Colors.white : Colors.black,
+                    color: _selected == i ? Colors.cyanAccent: Colors.black,
                     fontSize: 16.0,
                   ),
                 ),

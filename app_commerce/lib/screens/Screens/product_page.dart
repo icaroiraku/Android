@@ -37,7 +37,10 @@ class _ProductPageState extends State<ProductPage> {
         .collection("Cart")
         .doc(widget.productId)
         .set({"size": _selectedProductSize});
+
   }
+
+
 
   Future _addToSaved() {
     return _firebaseServices.usersRef
@@ -47,7 +50,7 @@ class _ProductPageState extends State<ProductPage> {
         .set({"size": _selectedProductSize});
   }
   final SnackBar _snackBar = SnackBar
-    (content: Text("Produto adicionado ao carrinho"),
+    (content: Text("Produto Salvo em Favoritos."),
   );
 
   @override
@@ -103,7 +106,7 @@ class _ProductPageState extends State<ProductPage> {
                         horizontal: 24.0,
                       ),
                       child: Text(
-                        "\$${documentData['price']}",
+                        "R\$${documentData['price']}",
                         style: TextStyle(
                           fontSize: 18.0,
                           color: Theme.of(context).accentColor,

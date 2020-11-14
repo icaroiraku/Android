@@ -24,7 +24,7 @@ class _RegisterPageState extends State<RegisterPage> {
             ),
             actions: [
               FlatButton(
-                child: Text("Close Dialog"),
+                child: Text("Caixa de Dialogo fechada"),
                 onPressed: () {
                   Navigator.pop(context);
                 },

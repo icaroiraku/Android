@@ -112,7 +112,7 @@ class _CartPageState extends State<CartPage> {
                                             vertical: 4.0,
                                           ),
                                           child: Text(
-                                            "\$${_productMap['price']}",
+                                            "R\$${_productMap['price']}",
                                             style: TextStyle(
                                                 fontSize: 16.0,
                                                 color: Theme.of(context)
@@ -122,7 +122,7 @@ class _CartPageState extends State<CartPage> {
                                           ),
                                         ),
                                         Text(
-                                          "Size - ${document.data()['size']}",
+                                          "Cor - ${document.data()['size']}",
                                           style: TextStyle(
                                               fontSize: 16.0,
                                               color: Colors.black,
@@ -160,7 +160,7 @@ class _CartPageState extends State<CartPage> {
           ),
           CustomActionBar(
             hasBackArrrow: true,
-            title: "Cart",
+            title: "Carrinho De Compras",
           )
         ],
       ),
