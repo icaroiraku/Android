@@ -1,6 +1,6 @@
 # app_commerce
 
-A new Flutter application.
+Aplicaçao Flutter  com firebase para aplicativo Ecommerce.
 
 ## Getting Started
 
